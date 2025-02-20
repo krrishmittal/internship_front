@@ -910,7 +910,12 @@ nav ul li button:hover {
 .popup button[type="button"]:hover {
   background-color: #c82333; /* Cancel button hover color */
 }
-
+@media (max-width: 768px) { 
+  .popup { width: 95%;  
+    left:10px; 
+    z-index: 2000;
+  } 
+}
 /* Popup1 Styles */
 .popup1 {
   position: fixed;
