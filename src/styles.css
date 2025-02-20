@@ -1,0 +1,1054 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f4f7fa, #e2e8f0);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  padding-top: 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Navigation Styles */
+nav {
+  background-color: white;
+  padding: 1.3rem;
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 100px;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  gap: 3rem;
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffdd57;
+}
+
+nav ul li button {
+  background: none;
+  border: none;
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+nav ul li button:hover {
+  color: #ffdd57;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  nav ul li a,
+  nav ul li button {
+    display: block;
+    padding: 1rem;
+  }
+}
+
+/* Form Container Styles */
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+  margin-top: 40px;
+}
+
+.hand {
+  margin-top: 100px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4a90e2;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #357abd;
+}
+
+.password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 36%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #4a90e2;
+}
+
+/* Opportunities Page Styles */
+.opportunities-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 80px; /* Ensure it doesn't overlap with the navbar */
+}
+
+.opportunities-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.filter-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  max-height: 400px; /* Set a fixed height */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  position: sticky; /* Keep it in view when scrolling */
+  top: 100px; /* Adjust to prevent overlap with navbar */
+  z-index: 1;
+}
+
+.filter-section h2 {
+  color: #4a90e2;
+  margin-bottom: 1rem;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.opportunities-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.opportunities-title {
+  font-size: 2rem;
+  margin-top: 3rem;
+  color: #4a90e2;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filter-toggle-button {
+  display: none; /* Hidden by default */
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-toggle-button:hover {
+  background-color: #357abd;
+}
+
+@media (max-width: 768px) {
+  .opportunities-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-toggle-button {
+    display: block;
+  }
+
+  .filter-section {
+    width: 100%;
+    max-height: none; 
+    position: relative;
+    top: 0; 
+    margin-bottom: 20px; 
+    display: none;
+  }
+
+  .filter-section.active {
+    display: block; 
+  }
+
+  .opportunities-list {
+    width: 100%;
+  }
+}
+
+.opportunities-title {
+  font-size: 2rem;
+  margin-top: 3rem;
+  color: #4a90e2;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.opportunities-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.opportunity-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Remove transform from transition */
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.opportunity-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.opportunity-card h1 {
+  color: #4a90e2;
+  margin-bottom: 1rem;
+}
+
+.opportunity-card p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.opportunity-card button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.opportunity-card button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.opportunity-card button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.dashboard-page {
+  padding: 2rem;
+}
+
+.dashboard {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 50px 0 0 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h1 {
+  color: #4a90e2;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard ul li {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; 
+  gap: 5px;
+  animation: fadeIn 0.5s ease;
+}
+
+.dashboard ul li h2 {
+  color: #4a90e2;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard ul li p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  padding: 0.5rem; 
+  background-color: #4a90e2; 
+  color: white; border: none; 
+  border-radius: 4px; 
+  font-size: 1rem; cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+@media (min-width: 768px) {
+  .dashboard ul li {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dashboard ul li h2 {
+    flex: 1;
+  }
+
+  .dashboard ul li p {
+    flex: 1;
+  }
+
+  /* .  .delete-button {
+    margin-left: auto;
+  } */
+}
+.for-button { margin-top: 20px; 
+  padding: 0.5rem; 
+  background-color: #4a90e2; 
+  color: white; border: none; 
+  border-radius: 4px; 
+  font-size: 1rem; cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.for-btn { 
+  color: #4a90e2; 
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+.edit-button { 
+  padding: 0.5rem; 
+  background-color: #4a90e2; 
+  color: white; border: none; 
+  border-radius: 4px; 
+  font-size: 1rem; cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.edit-button:hover { background-color: #357abd; }
+
+.form-button:hover { background-color: #357abd; }
+/* Profile Page Styles */
+.profile-page {
+  position: relative;
+  display: flex;
+  margin-top: 5vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.profile-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.profile-page h1 {
+  color: #4a90e2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-page p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.profile-page button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem; /* Space between buttons */
+}
+
+.profile-page button:hover {
+  background-color: #357abd;
+}
+
+.profile-page form {
+  margin-top: 1.5rem;
+}
+
+.profile-page form div {
+  margin-bottom: 1rem;
+}
+
+.profile-page form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a90e2;
+  font-weight: 500;
+}
+
+.profile-page form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.profile-page form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-top: 2rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-item {
+  background: #f4f7fa;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-item button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.skill-item button:hover {
+  background: #cc0000;
+}
+
+.add-skill {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-skill input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-skill button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-skill button:hover {
+  background: #357abd;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 2rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3 {
+  margin: 0 0 5px;
+  color: #4a90e2;
+}
+
+.project-item p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.project-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}
+
+/* Confirmation Modal */
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content button {
+  margin: 10px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #357abd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-content {
+    width: 95%; /* Adjust width for smaller screens */
+  }
+
+  .add-skill {
+    flex-direction: column;
+  }
+
+  .add-skill input {
+    margin-bottom: 10px;
+  }
+}
+
+/* Additional Styles for Forms and Buttons */
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+  margin-top: 40px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4a90e2;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color:  #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #357abd;
+}
+
+.password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 36%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #4a90e2;
+}
+
+/* Additional Styles for Opportunity Cards */
+.opportunity-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+}
+
+.opportunity-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.opportunity-card h1 {
+  color: #4a90e2;
+  margin-bottom: 1rem;
+}
+
+.opportunity-card p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.opportunity-card button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.opportunity-card button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.opportunity-card button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+/* Popup Styles */
+.popup {
+  position: fixed;
+  top: 110px;  
+  left: 120px; 
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2000; 
+  width: 90%; 
+  max-width: 400px;  
+  max-height: 80vh;  
+  overflow-y: auto; 
+  animation: fadeIn 0.3s ease; 
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+  color: #4a90e2; /* Header color */
+  text-align: center; /* Center the header */
+}
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup label {
+  margin-bottom: 8px;
+  font-weight: 500;  
+  color: #333;  
+}
+
+.popup input[type="text"],
+.popup input[type="email"],
+.popup input[type="tel"],
+.popup input[type="date"],
+.popup input[type="file"],
+.popup textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.popup input[type="text"]:focus,
+.popup input[type="email"]:focus,
+.popup input[type="tel"]:focus,
+.popup input[type="date"]:focus,
+.popup textarea:focus {
+  border-color: #4a90e2; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.popup button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a90e2; /* Primary button color */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #357abd; /* Darker shade on hover */
+}
+
+.popup button[type="button"] {
+  background-color: #dc3545; /* Cancel button color */
+}
+
+.popup button[type="button"]:hover {
+  background-color: #c82333; /* Cancel button hover color */
+}
+
+/* Popup1 Styles */
+.popup1 {
+  position: fixed;
+  top: 110px;  
+  right: 30px; 
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2000; 
+  width: 90%; 
+  max-width: 400px;  
+  max-height: 80vh;  
+  overflow-y: auto; 
+  animation: fadeIn 0.3s ease; 
+}
+
+.popup1 h2 {
+  margin-bottom: 20px;
+  color: #4a90e2; /* Header color */
+  text-align: center; /* Center the header */
+}
+
+.popup1 form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup1 label {
+  margin-bottom: 8px;
+  font-weight: 500;  
+  color: #333;  
+}
+
+.popup1 input[type="text"],
+.popup1 input[type="email"],
+.popup1 input[type="tel"],
+.popup1 input[type="date"],
+.popup1 input[type="file"],
+.popup1 textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.popup1 input[type="text"]:focus,
+.popup1 input[type="email"]:focus,
+.popup1 input[type="tel"]:focus,
+.popup1 input[type="date"]:focus,
+.popup1 textarea:focus {
+  border-color: #4a90e2; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.popup1 button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a90e2; /* Primary button color */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup1 button:hover {
+  background-color: #357abd; /* Darker shade on hover */
+}
+
+.popup1 button[type="button"] {
+  background-color: #dc3545; /* Cancel button color */
+}
+
+.popup1 button[type="button"]:hover {
+  background-color: #c82333; /* Cancel button hover color */
+}
+
+/* Add Project Styles */
+.add-project {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.add-project input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-project button {
+  padding: 10px 15px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-project button:hover {
+  background-color: #357abd;
+}
+/* edit project style*/
+.edit-project {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.edit-project input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-project button {
+  padding: 10px 15px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-project button:hover {
+  background-color: #357abd;
+}
