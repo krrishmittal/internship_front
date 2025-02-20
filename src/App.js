@@ -33,7 +33,7 @@ function App() {
           rtl={false}
           draggable
           pauseOnHover={false}
-          style={{ marginTop: "4rem" }}
+          style={{ marginTop: "4rem"}}
         />
       </BrowserRouter>
     </div>
